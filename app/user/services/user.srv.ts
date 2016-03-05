@@ -6,14 +6,11 @@ import {User} from '../models/user';
 
 @Injectable()
 export class UserService {
-
-    private _myFirebaseRef;
-
     constructor() {
-        this._myFirebaseRef = new Firebase("mytunes.firebaseIO.com");
+        this._myFirebaseRef = new Firebase("scorching-inferno-7529.firebaseIO.com");
     }
 
-    getUser():Observable {
+    getUser() {
         return new Observable(observable => {
             this._myFirebaseRef.onAuth(authData => {
                let user;
@@ -25,7 +22,7 @@ export class UserService {
         });
     }
 
-    login(email:string, password:string):Observable {
+    login(email, password) {
         return new Observable(observable => {
             this._myFirebaseRef.authWithPassword({
                email : email,
@@ -40,7 +37,7 @@ export class UserService {
         });
     }
 
-    register(email:string, password:string):Observable {
+    register(email, password) {
         return new Observable(observable => {
             this._myFirebaseRef.createUser({
                 email : email,
@@ -58,7 +55,7 @@ export class UserService {
         });
     }
 
-    logout():Observable {
+    logout() {
         return new Observable(observable => {
             this._myFirebaseRef.unauth()
             observable.next();

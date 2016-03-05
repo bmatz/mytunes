@@ -26,7 +26,7 @@ System.register(['angular2/core', 'rxjs/Observable', '../models/user'], function
         execute: function() {
             UserService = (function () {
                 function UserService() {
-                    this._myFirebaseRef = new Firebase("mytunes.firebaseIO.com");
+                    this._myFirebaseRef = new Firebase("scorching-inferno-7529.firebaseIO.com");
                 }
                 UserService.prototype.getUser = function () {
                     var _this = this;

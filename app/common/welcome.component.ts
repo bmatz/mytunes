@@ -21,8 +21,9 @@ import {Component} from 'angular2/core';
     `
 })
 export class WelcomeComponent {
-    public showMore:boolean = false;
-
+    constructor() {
+      this.showMore = false;
+    }
     onShowMore() {
         this.showMore = true;
     }

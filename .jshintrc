@@ -1,0 +1,29 @@
+{
+	"node": true,
+	"browser": true,
+	"browserify": true,
+	"esnext": true,
+	"bitwise": true,
+	"curly": true,
+	"eqeqeq": true,
+	"freeze": true,
+	"futurehostile": true,
+	"nocomma": true,
+	"nonbsp": true,
+	"nonew": true,
+	"singleGroups": true,
+	"latedef": "nofunc",
+	"noarg": true,
+	"undef": true,
+	"unused": true,
+	"mocha": true,
+	"module": true,
+	"varstmt": true,
+	"globals": {
+		"angular": false,
+		"swal": false,
+		"$": false,
+		"alertify": false,
+		"io": false
+	}
+}

@@ -10,6 +10,9 @@ System.register(['angular2/core', 'angular2/router', './search.component', '../u
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
+    var __param = (this && this.__param) || function (paramIndex, decorator) {
+        return function (target, key) { decorator(target, key, paramIndex); }
+    };
     var core_1, router_1, search_component_1, user_srv_1;
     var HeaderComponent;
     return {
@@ -28,33 +31,35 @@ System.register(['angular2/core', 'angular2/router', './search.component', '../u
             }],
         execute: function() {
             HeaderComponent = (function () {
-                function HeaderComponent(userService, router) {
+                function HeaderComponent(UserService, Router) {
                     var _this = this;
-                    this.userService = userService;
-                    this.router = router;
-                    this.userService.getUser()
+                    this._UserService = UserService;
+                    this._Router = Router;
+                    UserService.getUser()
                         .subscribe(function (user) {
                         _this.user = user;
                     });
                 }
                 HeaderComponent.prototype.search = function ($event) {
-                    this.router.navigate(["Albums", { query: $event }]);
+                    this._Router.navigate(["Albums", { query: $event }]);
                 };
                 HeaderComponent.prototype.logout = function () {
                     var _this = this;
-                    this.userService.logout()
+                    this._UserService.logout()
                         .subscribe(function () {
-                        _this.router.navigateByUrl("/");
+                        _this._Router.navigateByUrl("/");
                     });
                 };
                 HeaderComponent = __decorate([
                     core_1.Component({
                         selector: 'header-component',
-                        template: "\n        <nav class=\"navbar navbar-inverse\">\n          <div class=\"container-fluid\">\n            <!-- Brand and toggle get grouped for better mobile display -->\n            <div class=\"navbar-header\">\n              <button type=\"button\" class=\"navbar-toggle collapsed\" data-toggle=\"collapse\" data-target=\"#bs-example-navbar-collapse-1\" aria-expanded=\"false\">\n                <span class=\"sr-only\">Toggle navigation</span>\n                <span class=\"icon-bar\"></span>\n                <span class=\"icon-bar\"></span>\n                <span class=\"icon-bar\"></span>\n              </button>\n              <a class=\"navbar-brand\" href=\"#\">MyTunes</a>\n            </div>\n\n            <!-- Collect the nav links, forms, and other content for toggling -->\n            <div class=\"collapse navbar-collapse\" id=\"bs-example-navbar-collapse-1\">\n              <form class=\"navbar-form navbar-left\" role=\"search\">\n                <search-component (searchChange)=\"search($event)\"></search-component>\n              </form>\n              <ul class=\"nav navbar-nav navbar-right\">\n                <li><button type=\"button\" class=\"btn btn-info navbar-btn\" *ngIf=\"!user\" [routerLink]=\"['Login']\">Login</button></li>\n                <li><button type=\"button\" class=\"btn btn-success navbar-btn\" *ngIf=\"!user\" [routerLink]=\"['Register']\">Register</button></li>\n                <li><a href=\"#\" *ngIf=\"user\">{{ user.email }}</a></li>\n                <li><a href=\"#\" *ngIf=\"user\" (click)=\"logout()\">Logout</a></li>\n              </ul>\n            </div><!-- /.navbar-collapse -->\n          </div><!-- /.container-fluid -->\n        </nav>\n    ",
+                        template: "\n\t\t<nav class=\"navbar navbar-inverse\">\n\t\t  <div class=\"container-fluid\">\n\t\t\t<!-- Brand and toggle get grouped for better mobile display -->\n\t\t\t<div class=\"navbar-header\">\n\t\t\t  <button type=\"button\" class=\"navbar-toggle collapsed\" data-toggle=\"collapse\" data-target=\"#bs-example-navbar-collapse-1\" aria-expanded=\"false\">\n\t\t\t\t<span class=\"sr-only\">Toggle navigation</span>\n\t\t\t\t<span class=\"icon-bar\"></span>\n\t\t\t\t<span class=\"icon-bar\"></span>\n\t\t\t\t<span class=\"icon-bar\"></span>\n\t\t\t  </button>\n\t\t\t  <a class=\"navbar-brand\" href=\"#\">MyTunes</a>\n\t\t\t</div>\n\n\t\t\t<!-- Collect the nav links, forms, and other content for toggling -->\n\t\t\t<div class=\"collapse navbar-collapse\" id=\"bs-example-navbar-collapse-1\">\n\t\t\t  <form class=\"navbar-form navbar-left\" role=\"search\">\n\t\t\t\t<search-component (searchChange)=\"search($event)\"></search-component>\n\t\t\t  </form>\n\t\t\t  <ul class=\"nav navbar-nav navbar-right\">\n\t\t\t\t<li><button type=\"button\" class=\"btn btn-info navbar-btn\" *ngIf=\"!user\" [routerLink]=\"['Login']\">Login</button></li>\n\t\t\t\t<li><button type=\"button\" class=\"btn btn-success navbar-btn\" *ngIf=\"!user\" [routerLink]=\"['Register']\">Register</button></li>\n\t\t\t\t<li><a href=\"#\" *ngIf=\"user\">{{ user.email }}</a></li>\n\t\t\t\t<li><a href=\"#\" *ngIf=\"user\" (click)=\"logout()\">Logout</a></li>\n\t\t\t  </ul>\n\t\t\t</div><!-- /.navbar-collapse -->\n\t\t  </div><!-- /.container-fluid -->\n\t\t</nav>\n\t",
                         providers: [user_srv_1.UserService],
                         directives: [router_1.ROUTER_DIRECTIVES, search_component_1.SearchComponent]
-                    }), 
-                    __metadata('design:paramtypes', [user_srv_1.UserService, router_1.Router])
+                    }),
+                    __param(0, core_1.Inject(user_srv_1.UserService)),
+                    __param(1, core_1.Inject(router_1.Router)), 
+                    __metadata('design:paramtypes', [Object, Object])
                 ], HeaderComponent);
                 return HeaderComponent;
             }());

@@ -13,6 +13,7 @@ import {Component} from 'angular2/core';
 		</footer>`
 })
 export class FooterComponent {
+	a
 	constructor() {
 		this.year = new Date().getFullYear();
 	}

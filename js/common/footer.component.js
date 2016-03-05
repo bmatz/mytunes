@@ -20,13 +20,12 @@ System.register(['angular2/core'], function(exports_1, context_1) {
         execute: function() {
             FooterComponent = (function () {
                 function FooterComponent() {
-                    this.year = (new Date()).getFullYear();
+                    this.year = new Date().getFullYear();
                 }
                 FooterComponent = __decorate([
                     core_1.Component({
                         selector: 'footer-component',
-                        template: "\n        <footer class=\"footer\">\n          <div class=\"container\">\n            <a class=\"text-muted\" href=\"/\">Alejandro Rangel, {{ year }}</a>\n            <a class=\"text-muted\" href=\"https://twitter.com/arangelp\" target=\"_blank\"><i class=\"fa fa-twitter\"></i> @arangelp</a>\n            <a class=\"text-muted\" href=\"https://www.linkedin.com/in/arangelp\" target=\"_blank\"><i class=\"fa fa-linkedin\"></i> Linkedin</a>\n            <a class=\"text-muted\" href=\"http://www.arangelp.com/\" target=\"_blank\"><i class=\"fa fa-wordpress\"></i> Website</a>\n          </div>\n        </footer>\n    ",
-                        styles: ["\n        footer {\n            position: absolute;\n            bottom : 0;\n            width : 100%;\n            height : 60px;\n            background-color: whitesmoke;\n        }\n\n        .container {\n            height : 60px;\n        }\n\n        a {\n            height : 60px;\n            line-height : 60px;\n            margin-right : 5em;\n        }\n    "]
+                        template: "\n\t\t<footer class=\"footer\">\n\t\t\t<div class=\"container\">\n\t\t\t\t<a class=\"text-muted\" href=\"/\">Alejandro Rangel, {{ year }}</a>\n\t\t\t\t<a class=\"text-muted\" href=\"https://twitter.com/arangelp\" target=\"_blank\"><i class=\"fa fa-twitter\"></i> @arangelp</a>\n\t\t\t\t<a class=\"text-muted\" href=\"https://www.linkedin.com/in/arangelp\" target=\"_blank\"><i class=\"fa fa-linkedin\"></i> Linkedin</a>\n\t\t\t\t<a class=\"text-muted\" href=\"http://www.arangelp.com/\" target=\"_blank\"><i class=\"fa fa-wordpress\"></i> Website</a>\n\t\t\t</div>\n\t\t</footer>"
                     }), 
                     __metadata('design:paramtypes', [])
                 ], FooterComponent);
